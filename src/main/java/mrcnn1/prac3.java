@@ -198,14 +198,22 @@ class XYScatterChart_AWT extends ApplicationFrame {
 	      XYLineAndShapeRenderer r = new XYLineAndShapeRenderer(true, false);
 	      r.setSeriesPaint(2, Color.blue);
 	      r.setSeriesPaint(3, Color.orange);
+	      r.setSeriesVisible(1, false);
+	      r.setSeriesVisible(0, false);
+	      plot.mapDatasetToDomainAxis(0, 0);
+	      plot.mapDatasetToRangeAxis(0, 0);
 	      XYDotRenderer renderer = new XYDotRenderer( );
 	      renderer.setSeriesPaint( 0 , Color.RED );
 	      renderer.setSeriesPaint( 1 , Color.GREEN );
 	      renderer.setDotHeight(3);
 	      renderer.setDotWidth(3);
-	      plot.setRenderer(1 ,r);
-	      plot.setRenderer(0, renderer ); 
+	      renderer.setSeriesVisible(2, false);
+	      renderer.setSeriesVisible(3, false);
+	      plot.setRenderer(0, renderer);
+	      plot.setRenderer(1, r);
 	      plot.setDatasetRenderingOrder(DatasetRenderingOrder.FORWARD);
+	      plot.mapDatasetToDomainAxis(1, 0);
+	      plot.mapDatasetToRangeAxis(1, 1);
 	      setContentPane( chartPanel ); 
 	   }
 	   
